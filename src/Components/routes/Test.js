@@ -22,9 +22,9 @@ const styles = theme => ({
   header: {
     display: 'flex',
     alignItems: 'center',
-    height: 50,
+    
     paddingLeft: theme.spacing.unit * 5,
-    marginBottom: 20,
+   
     backgroundColor: theme.palette.background.default,
   },
   img: {
@@ -152,7 +152,7 @@ class Test extends React.Component {
     const guest = localStorage.getItem('guest');
 
     return (
-      <div className={classes.root}>
+      <div className={ " container"} style={{marginTop:"-10px"}}>
         {!!authenticated || !!guest ?
           <div id="test">
             {this.state.submit === true ? <Redirect to="/submit-response" /> : null}

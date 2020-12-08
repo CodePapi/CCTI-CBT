@@ -1,0 +1,110 @@
+.container{
+    margin:auto;
+    max-width: 1000px !important;
+    /* height: 00px !important; */
+}
+.successContainer {
+    margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+ .successtxt{
+     color:#2FD694 !important;
+ }
+.containerHeight{
+    height: 800px !important;
+    font-size: 16px;
+}
+.intro{
+
+font-weight: 650;
+font-size: 20px;
+line-height: 22px;
+/* identical to box height, or 42% */
+padding-top: 10px;
+padding-bottom: 10px;
+text-align: center;
+letter-spacing: 0.342857px;
+
+color: #000000;
+}
+.input{
+    margin: 1px solid gray;
+}
+.input:focus{
+    outline: none;
+}
+.logo{
+    width: 100px;
+}
+.p{
+    margin: auto;
+    max-width: 400px;
+    line-height: normal;
+    padding-bottom: 20px;
+}
+
+.font{font-size: 15px;}
+
+.btn-size{
+width: 280px;  
+border-radius: 5px;
+}
+.qbadge{
+   font-size: 20px !important;
+}
+.down-btn{
+    margin: auto;
+   
+    max-width: 367px;
+}
+.tc>button{
+    border-radius: 5px;
+}
+.l-alert{
+    border-radius: 5px;
+}
+.tl{
+text-align: center;
+}
+.dnone{
+    display: none;
+}
+.dshow{
+    display: block;
+}
+.dbtn{
+    border-radius: 6px;
+
+}
+/* .iconAnt{
+   
+    
+} */
+.qheight{
+    min-height: 70px;
+}
+@media screen and (max-width: 800px) {
+    .dnone{
+        display: block;
+    }
+    .dshow{
+        display: none;
+    }
+  }
+  @media screen and (max-width: 400px) {
+ /* .hidetxt{
+display: none !important;
+  } */
+  .sm{
+      font-size: small;
+  }
+  .dbtn{
+    font-size: small
+    
+}
+.btn-size{
+    font-size: small;
+}
+}

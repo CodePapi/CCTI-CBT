@@ -1,7 +1,7 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import ReactTooltip from 'react-tooltip'
+// import ReactTooltip from 'react-tooltip'
 
 const styles = {
   root: { 
@@ -21,11 +21,11 @@ function Footer(props) {
 
   return (
     <div className={classes.root}>
-      <Typography gutterBottom>
+      {/* <Typography gutterBottom>
         Copyright &copy;{new Date().getFullYear()} - CCTI <br/>
            Designed and developed by <span className={classes.span} data-tip="Contact Phone: +2348060230771, Email: chybesta@gmail.com"> Sirgeb </span>
       </Typography>
-      <ReactTooltip place="right" type="dark" effect="float"/>
+      <ReactTooltip place="right" type="dark" effect="float"/> */}
     </div>
   );
 }

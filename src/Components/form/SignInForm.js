@@ -15,31 +15,31 @@ const styles = theme => ({
     flexWrap: 'wrap',
     alignItems: 'center'
   },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    [theme.breakpoints.between('xs', 'sm')]: {
-      width: 300,
-    },
-    [theme.breakpoints.between('md', 'lg')]: {
-      width: 500,
-    },
-    [theme.breakpoints.only('xl')]: {
-      width: 500,
-    },
-  },
-  formControl: {
-    margin: theme.spacing.unit,
-    [theme.breakpoints.between('xs', 'sm')]: {
-      width: 300,
-    },
-    [theme.breakpoints.between('md', 'lg')]: {
-      width: 500,
-    },
-    [theme.breakpoints.only('xl')]: {
-      width: 500,
-    },
-  }
+  // textField: {
+  //   marginLeft: theme.spacing.unit,
+  //   marginRight: theme.spacing.unit,
+  //   [theme.breakpoints.between('xs', 'sm')]: {
+  //     maxWidth: 300,
+  //   },
+  //   [theme.breakpoints.between('md', 'lg')]: {
+  //     maxWidth: 500,
+  //   },
+  //   [theme.breakpoints.only('xl')]: {
+  //     maxWidth: 500,
+  //   },
+  // },
+  // formControl: {
+  //   margin: theme.spacing.unit,
+  //   [theme.breakpoints.between('xs', 'sm')]: {
+  //     maxWidth: 300,
+  //   },
+  //   [theme.breakpoints.between('md', 'lg')]: {
+  //     maxWidth: 500,
+  //   },
+  //   [theme.breakpoints.only('xl')]: {
+  //     width: 500,
+  //   },
+  // }
 });
 
 
@@ -107,6 +107,7 @@ class TextFields extends React.Component {
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor="select-program">Program Type</InputLabel>
             <Select
+            style={{width:"200px"}}
               value={programType}
               onChange={this.handleSelectChange}
               inputProps={{
