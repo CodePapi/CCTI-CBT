@@ -1,5 +1,5 @@
 module.exports = [
-  {
+  {    
     id: 1,
     label: 'What is a Computer?',
     obj: {
@@ -8,7 +8,8 @@ module.exports = [
       opt1: 'An electronic machine',
       opt2: 'A gabage in gabage out',
       opt3: 'An electric calculator',
-      opt4: 'A television'
+      opt4: 'A television',
+    
     }
   },
   {
@@ -20,7 +21,8 @@ module.exports = [
       opt1: 'An information',
       opt2: 'A piece of hardware',
       opt3: 'A data',
-      opt4: 'A processed'
+      opt4: 'A processed',
+      real:false
     }
   },
   {
@@ -32,7 +34,8 @@ module.exports = [
       opt1: 'First Generation',
       opt2: 'Second Generation',
       opt3: 'Third Generation',
-      opt4: 'Fifth Generation'
+      opt4: 'Fifth Generation',
+      real:false
     }
   },
   {
