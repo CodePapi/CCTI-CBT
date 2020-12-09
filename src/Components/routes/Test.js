@@ -8,12 +8,16 @@ import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
-import Questions from '../Questions';
-import Objective from '../Objective';
+// import Questions from '../Questions'
+import {Alert} from "antd";
+import NirsalData from "../NirsalData"
+// import Objective from '../Objective';
+import NirsalObjectives from "../NirsalObjectives"
 import Header from '../Header';
 import { Redirect } from 'react-router-dom';
-
-
+const NirsalQuestions=NirsalData[0].result[0].assessmentQuestions
+console.log(NirsalQuestions)
+// console.log(Questions)
 const styles = theme => ({
   root: {
     width: '100%',
@@ -123,7 +127,7 @@ class Test extends React.Component {
   }
 
   setTime = () => {
-    const examTime = Date.parse(new Date()) + (1000 * 60 * 30) - Date.parse(new Date());
+    const examTime = Date.parse(new Date()) + (1000 * 60 * 2) - Date.parse(new Date());
     this.setState({ examTime });
     this.timer = setInterval(() => this.CountDown(), 1000);
     this.remainingTime();
@@ -147,36 +151,50 @@ class Test extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const { activeStep } = this.state;
-    const maxSteps = Questions.length;
+    // const maxSteps = Questions.length;
+    const maxSteps = NirsalQuestions.length;
     const authenticated = localStorage.getItem('authenticated');
     const guest = localStorage.getItem('guest');
 
     return (
-      <div className={ " container"} style={{marginTop:"-10px"}}>
+      <div className={"container"} style={{marginTop:"-50px"}}>
         {!!authenticated || !!guest ?
           <div id="test">
             {this.state.submit === true ? <Redirect to="/submit-response" /> : null}
             {this.state.timeOut === true ? <Redirect to="/timeout" /> : null}
 
             <Header examTime={this.remainingTime()} submit={this.handleSubmit} />
+            <div className={"container"} style={{background:"#fafafa"}}><div className="bg-info text-white font-weight-bolder p-1" style={{width:"160px", borderRadius:"5px"}}>Question  {NirsalQuestions[activeStep].serialNumber} of {NirsalQuestions.length}</div></div><br/>
             <Paper square elevation={0} className={classes.header}>
-              <Typography>{Questions[activeStep].id}. {Questions[activeStep].label}</Typography>
+          
+              {/* <Typography></Typography> */}
             </Paper>
-
+            <Alert message={<h3 className="alert-info h3 container font-weight-light" style={{minHeight:"100px"}}>{NirsalQuestions[activeStep].serialNumber}. {NirsalQuestions[activeStep].questionText}</h3>} type="success" />
             <SwipeableViews
+            style={{ backgroundColor:"#fafafa"}}
+           
               axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
               index={this.state.activeStep}
               onChangeIndex={this.handleStepChange}
               enableMouseEvents
             >
-              {Questions.map(question => (
+              {/* {Questions.map(question => (
                 <Objective
                   objective={question.obj}
                   key={question.id}
                   response={(quesNo) => this.response(quesNo)}
                   checkQuestionNo={(quesNo) => this.checkQuestionNo(quesNo)} />
-              ))}
-
+              ))} */}
+{NirsalQuestions.map(question=>(
+  <NirsalObjectives
+  objective={question.lsmQuestionOptions}
+  key={question.questionOID}
+  response={(quesNo) => this.response(quesNo)}
+  checkQuestionNo={(quesNo) => this.checkQuestionNo(quesNo)}
+  />
+)
+)
+}
             </SwipeableViews>
 
             <MobileStepper
@@ -186,13 +204,13 @@ class Test extends React.Component {
               activeStep={activeStep}
               className={classes.mobileStepper}
               nextButton={
-                <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
+                <Button style={{float:"right"}} size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
                   Next
               {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
                 </Button>
               }
               backButton={
-                <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
+                <Button style={{float:"right"}} size="small" onClick={this.handleBack} disabled={activeStep === 0}>
                   {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
                   Back
             </Button>

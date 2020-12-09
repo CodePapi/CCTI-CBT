@@ -46,7 +46,7 @@ function SimpleAppBar(props) {
             CCTI CBT {new Date().getFullYear()}
           </Typography> */}
           <img src={Logo} alt="logo"/>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", flexWrap:"wrap"}}>
             <div style={{ margin: "22px 18px", display: "flex" }}>
               <Alarm />
               <Typography color="inherit" >Time: {examTime} </Typography>

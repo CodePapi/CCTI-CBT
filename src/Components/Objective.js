@@ -37,6 +37,9 @@ class RadioButtonsGroup extends React.Component {
       this.props.response(quesNo);
     } else {
       this.props.checkQuestionNo(quesNo);
+      console.log(ans +" for ans")
+      console.log(event+ " for event")
+      console.log(quesNo +" for quesNos")
     }
   }
 

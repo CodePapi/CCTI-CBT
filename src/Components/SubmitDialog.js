@@ -26,7 +26,7 @@ class SubmitDialog extends React.Component {
   render() {
     return (
       <div>
-        <Button color="inherit" onClick={this.handleClickOpen} style={{ margin: 14 }}>Submit Test</Button>
+        <button color="inherit" className="btn btn-primary" onClick={this.handleClickOpen} style={{ margin: 14 }}>Submit</button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
